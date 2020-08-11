@@ -1,0 +1,12 @@
+
+0、看原理图和USBASP线连接好
+
+1、用isp软件读取一个现成的ARDUINO的328p芯片的熔丝，然后不要改动
+
+2、用ISP读取新的328p芯片，成功连上后，把刚才的熔丝原封不动的烧录到当前的新的328p芯片
+（熔丝管理者AVR芯片的运行参数如晶振分频等等，很重要）
+
+3、下载arduino的bootloader，以此实现arduinoIDE下载，下载bootloader看https://www.arduino.cn/forum.php?mod=viewthread&tid=21619&fromuid=82799。
+原理图上，USB转串口芯片可与只连UART到MCU，其他CTS什么的可用仿照“转串口 自制 写入arduino成功图.jpg”连到复位
+或者直接用ISP软件烧录arduinoIDE产生的HEX文件（先看“Hex文件提取”，arduino软件内点编译后，在对应的文件夹内会生成Hex文件，把这个hex用usbisp软件下载到328p里面），
+这个相对麻烦。
